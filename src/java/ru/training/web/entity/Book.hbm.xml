@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29.06.2020 13:23:48 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="library" name="ru.training.web.entity.Book" table="book">
+    <id name="id" type="java.lang.Long">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="ru.training.web.entity.Author" fetch="join" name="author">
+      <column name="author_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="ru.training.web.entity.Genre" fetch="join" name="genre">
+      <column name="genre_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="ru.training.web.entity.Publisher" fetch="join" name="publisher">
+      <column name="publisher_id" not-null="true"/>
+    </many-to-one>
+    <property name="name" type="string">
+      <column length="45" name="name" not-null="true"/>
+    </property>
+    <property name="content" type="binary">
+      <column name="content"/>
+    </property>
+    <property name="pageCount" type="int">
+      <column name="page_count" not-null="true"/>
+    </property>
+    <property name="isbn" type="string">
+      <column length="100" name="isbn" not-null="true" unique="true"/>
+    </property>
+    <property name="publishYear" type="int">
+      <column name="publish_year" not-null="true"/>
+    </property>
+    <property name="image" type="binary">
+      <column name="image"/>
+    </property>
+    <property name="descr" type="string">
+      <column length="5000" name="descr"/>
+    </property>
+  </class>
+</hibernate-mapping>
