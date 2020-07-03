@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 @ManagedBean
 @SessionScoped
 public class User implements Serializable {
+    
+        
 
     private String username;
     private String password;
